@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 })
 export class Footer {
   protected readonly githubUrl = 'https://github.com/AleksejMosunov';
-  protected readonly apiUrl = 'https://api.api-ninjas.com';
+  protected readonly apiUrl = 'https://api.genratr.com';
 }

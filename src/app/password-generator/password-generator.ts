@@ -29,7 +29,7 @@ export class PasswordGeneratorComponent {
         this.includeSpecial,
       )
       .subscribe((res) => {
-        this.password.set(res.random_password);
+        this.password.set(res.password);
       });
   }
 

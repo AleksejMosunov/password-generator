@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { env } from 'process';
 import { environment } from '../../environments/environment.development';
@@ -8,34 +8,32 @@ import { environment } from '../../environments/environment.development';
   providedIn: 'root',
 })
 export class PasswordService {
-  private apiUrl = 'https://api.api-ninjas.com/v1/passwordgenerator';
-  private apiKey = environment.apiKey;
+  private apiUrl = 'https://api.genratr.com/';
+  // private apiKey = environment.apiKey;
 
   constructor(private http: HttpClient) {}
 
   generatePassword(
-    length: number,
-    includeLowercase: boolean,
-    includeUppercase: boolean,
-    includeNumbers: boolean,
-    includeSpecial: boolean,
-  ): Observable<{ random_password: string }> {
+    length = 12,
+    lowercase = true,
+    uppercase = true,
+    numbers = true,
+    special = true,
+  ): Observable<{ password: string }> {
     const headers = new HttpHeaders({
-      'X-Api-Key': this.apiKey,
+      // 'X-Api-Key': this.apiKey,
     });
 
-    const params = new HttpParams()
-      .set('length', length.toString())
-      .set('exclude_numbers', (!includeNumbers).toString())
-      .set('exclude_special_chars', (!includeSpecial).toString());
+    const params: any = { length };
 
-    console.log('🚀 REQUEST:');
-    console.log('URL:', this.apiUrl);
-    console.log('PARAMS:', params.toString());
+    if (lowercase) params.lowercase = '';
+    if (uppercase) params.uppercase = '';
+    if (numbers) params.numbers = '';
+    if (special) params.special = '';
 
-    return this.http.get<{ random_password: string }>(this.apiUrl, { headers, params }).pipe(
+    return this.http.get<{ password: string }>(this.apiUrl, { headers, params }).pipe(
       tap((res) => {
-        console.log('✅ RESPONSE:', res);
+        console.log('API response in service:', res);
       }),
     );
   }
