@@ -1,5 +1,7 @@
 # GenerateRandomPassword
 
+A simple Angular application that generates random passwords with customizable options. Users can select password length and copy the generated password to the clipboard. This project demonstrates Angular standalone components, signals, services, and API integration.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.5.
 
 ## Development server
