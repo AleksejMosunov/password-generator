@@ -1,17 +1,13 @@
 import { Routes } from '@angular/router';
 
-import { Home } from './pages/home/home';
-import { About } from './pages/about/about';
-import { RenderMode } from '@angular/ssr';
-
 export const routes: Routes = [
   {
     path: '',
-    component: Home,
+    loadComponent: () => import('./pages/home/home').then((m) => m.Home),
   },
   {
     path: 'about',
-    component: About,
+    loadComponent: () => import('./pages/about/about').then((m) => m.About),
   },
   {
     path: 'notes',
@@ -27,5 +23,9 @@ export const routes: Routes = [
       import('./pages/password-generator/password-generator').then(
         (m) => m.PasswordGeneratorComponent,
       ),
+  },
+  {
+    path: 'to-do',
+    loadComponent: () => import('./pages/to-do/to-do').then((m) => m.ToDo),
   },
 ];
