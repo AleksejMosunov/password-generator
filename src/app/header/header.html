@@ -1,9 +1,10 @@
 <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem;">
-  <h1 style="text-align:center; padding:0.5rem;">{{ title }}</h1>
+  <h1 class="clickable-title" [routerLink]="['/']" style="text-align:center; padding:0.5rem;">{{ title }}</h1>
   <ul style="display: flex; align-items: center; list-style: none; margin: 0; padding: 0; gap: 1rem;">
     <li><a routerLink="/">Головна</a></li>
     <li><a routerLink="/notes">Нотатки</a></li>
     <li><a routerLink="/to-do">Завдання</a></li>
+    <li><a routerLink="/password-generator">Генератор паролів</a></li>
     <li><a routerLink="/about">Про нас</a></li>
   </ul>
 </div>

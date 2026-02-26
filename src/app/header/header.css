@@ -2,3 +2,20 @@ a.router-link-active {
   color: #333; /* или любой другой цвет */
   font-weight: normal;
 }
+
+a {
+  color: #000000; /* или любой другой цвет для неактивных ссылок */
+  text-decoration: none;
+}
+
+.clickable-title {
+  text-align: center;
+  padding: 0.5rem;
+  cursor: pointer;           /* рука при наведенні */
+  color: #00b52a;
+  background: linear-gradient(90deg,#00ff6a, #00b52a);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+

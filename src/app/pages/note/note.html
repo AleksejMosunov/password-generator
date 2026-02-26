@@ -1,12 +1,16 @@
 <div style="width: 40%; margin: 2rem auto; padding: 1rem; border: 1px solid #ccc; border-radius: 8px;">
-  <ul>
-    <li *ngFor="let note of notes">
-      <h2>{{ note.title }}</h2>
-      <a [routerLink]="['/notes', note.id]">Деталі</a>
-    </li>
-  </ul>
+  <div class="notes-container">
+    <div class="note-card" *ngFor="let note of notes">
+      <div class="note-header">
+        <h2>{{ note.title }}</h2>
+        <small>{{ note.createdAt | date:'short' }}</small>
+      </div>
+      <p>{{ note.content }}</p>
+      <a [routerLink]="['/notes', note.id]" class="details-btn">Деталі</a>
+    </div>
+  </div>
 
-  <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 2rem;">
+  <div class="note-form">
     <input type="text" placeholder="Note Title" [ngModel]="newNote()?.title || ''"
       (ngModelChange)="newNote.set({ ...newNote(), title: $event })" />
 

@@ -20,4 +20,11 @@ export const routes: Routes = [
     path: 'notes/:id',
     loadComponent: () => import('./pages/note-detail/note-detail').then((m) => m.NoteDetail),
   },
+  {
+    path: 'password-generator',
+    loadComponent: () =>
+      import('./pages/password-generator/password-generator').then(
+        (m) => m.PasswordGeneratorComponent,
+      ),
+  },
 ];

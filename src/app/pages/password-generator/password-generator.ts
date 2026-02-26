@@ -1,8 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { PasswordService } from '../services/password-service';
+
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Password } from '../models/password.model';
+import { Password } from '../../models/password.model';
+import { PasswordService } from '../../services/password-service';
 
 @Component({
   selector: 'app-password-generator',

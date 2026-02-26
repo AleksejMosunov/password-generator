@@ -1,1 +1,10 @@
-<p>note-detail works!</p>
+<div>
+  <h2>Детальна інформація про нотатку</h2>
+  <p *ngIf="note" style="display: flex; flex-direction: column; gap: 1rem;">
+    <strong>{{ note.title }}</strong>
+    {{ note.content }}
+    <em> (створено: {{ note.createdAt | date:'short' }})</em>
+  </p>
+
+  <p *ngIf="!note">Нотатку не знайдено.</p>
+</div>
